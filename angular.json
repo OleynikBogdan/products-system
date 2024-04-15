@@ -75,6 +75,10 @@
               "buildTarget": "product-system:build:development"
             }
           },
+          "options": {
+            "browserTarget": "product-system:build",
+            "proxyConfig": "proxy.conf.json"
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
@@ -104,5 +108,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

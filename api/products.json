@@ -1,0 +1,14 @@
+{
+    "products": [
+        {
+            "id": "1",
+            "name": "milk",
+            "compound": "87.7% water, 4.9% lactose (carbohydrate), 3.4% fat, 3.3% protein, and 0.7% minerals"
+        },
+        {
+            "id": "2",
+            "name": "eggs",
+            "compound": "proteins (13%) and lipids (11%), however also minor amounts of carbohydrates (1%) and minerals are present"
+        }
+    ]
+}
