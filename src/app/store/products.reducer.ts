@@ -1,7 +1,7 @@
 import { Action, createAction, createReducer, on } from "@ngrx/store"
 import { IProductsState } from "./products.interfaces"
-import { loadProducts, loadProductsFailure, loadProductsSuccess } from "./products.actions"
-import { HttpErrorResponse } from "@angular/common/http"
+import { deleteProductFailure, deleteProductSuccess, loadProducts, loadProductsFailure, loadProductsSuccess, saveProductsFailure, saveProductsSuccess, updateProductFailure, updateProductSuccess } from "./products.actions"
+
 
 const initialState: IProductsState = {
     products: null,
@@ -26,6 +26,24 @@ const productsReducer = createReducer(
         (state, action): IProductsState => ({
             ...state,
             error:action.error
+        })
+    ),
+    on(
+        saveProductsSuccess, 
+        deleteProductSuccess,
+        updateProductSuccess,
+        (state, action): IProductsState => ({
+            ...state, 
+            products: action.products
+        })
+    ),
+    on( 
+        saveProductsFailure,
+        deleteProductFailure,
+        updateProductFailure,
+        (state, action): IProductsState => ({
+            ...state,
+            error: action.error
         })
     )
 )

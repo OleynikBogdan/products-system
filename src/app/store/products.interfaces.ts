@@ -11,7 +11,3 @@ export interface IProductsState {
     error: HttpErrorResponse | null,
     selectedProduct: IProduct | null
 }
-
-export interface IAppProducts {
-    allProducts: IProductsState
-}

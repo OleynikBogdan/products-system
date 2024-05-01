@@ -1,1 +1,38 @@
-<p>all-products works!</p>
+<div class="actions main-button">
+    <button class="c-button" (click)="createProduct()">Create</button>
+    <button class="c-button c-button--find" (click)="showSearch = !showSearch">Search</button>
+</div>
+<router-outlet></router-outlet>
+<form [formGroup]="searchForm" *ngIf="showSearch" >
+    <div class="form-control">
+        <label for="search">Type search value:</label>
+        <input type="text" id="search" [formControl]="searchControl">
+    </div>
+</form>
+<table *ngIf="allProducts$ | async as allProducts">
+    <tr>
+        <th>
+            Product name
+        </th>
+        <th>
+            Compound
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+    <tr *ngFor="let product of allProducts">
+        <td>
+            {{product.name}} 
+        </td>
+        <td>
+            {{product.compound}} 
+        </td>
+        <td>
+            <div class="actions">
+                <button class="c-button" (click)="updateProduct(product.id)">Edit</button>
+                <button class="c-button c-button--delete" (click)="deleteProduct(product.id)">Delete</button>
+            </div>
+        </td>
+    </tr>
+</table>

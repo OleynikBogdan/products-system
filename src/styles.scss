@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+.actions{
+    display: flex;
+    .c-button {
+        appearance: none;
+        border: 0;
+        border-radius: 5px;
+        background: #ceb563;
+        color: #fff;
+        padding: 8px 16px;
+        font-size: 16px;
+        flex: 1;
+        &--delete{
+            background: #c5756f;
+        }
+        &--save{
+            background: #77a86a;
+        }
+        &--find{
+            background: #49b1f7;
+        }
+    }
+}

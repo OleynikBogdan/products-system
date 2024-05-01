@@ -9,23 +9,34 @@ import { ProductsEffects } from '../store/products.effects';
 import { ProductService } from '../store/products.service';
 import { AllProductsComponent } from './all-products/all-products.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 const routes: Routes = [{
-    path: '',
-    component: AllProductsComponent
+  path: '',
+  component: AllProductsComponent,
+  children: [
+    {
+      path: 'product/:id',
+      component: EditProductComponent
+    }
+  ]
 }]
 @NgModule({
   declarations: [
-    AllProductsComponent
+    AllProductsComponent,
+    EditProductComponent
   ],
   imports: [CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('allProducts', reducer),
     EffectsModule.forFeature([ProductsEffects]),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
 
     ],
   providers: [ProductService],
-  exports: [AllProductsComponent]
+  exports: [AllProductsComponent, RouterModule]
 })
 export class ProductsModule { }
